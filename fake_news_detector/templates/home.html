@@ -1,0 +1,647 @@
+{%extends "navigation.html"%}
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme='dark'>
+
+<head>
+
+
+
+	<!-- Google Tag Manager -->
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-58LHNSV');
+	</script>
+	<!-- End Google Tag Manager -->
+
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fake news detector</title>
+
+
+	<!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+	<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap"
+		rel="stylesheet">
+	<!-- font -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Zilla+Slab+Highlight&display=swap"
+		rel="stylesheet">
+	<!-- font end -->
+	<script src="https://kit.fontawesome.com/3ea20092d3.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+	<style>
+		body {
+			background-color: transparent;
+		}
+
+		#home {
+			background-color: transparent;
+		}
+
+		#flexing {
+			display: flex;
+			flex-wrap: wrap;
+			/* flex-direction: column; */
+			justify-content: center;
+		}
+
+		#whole {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			/* flex-wrap: wrap; */
+		}
+
+		.c-form {
+			/* background: chartreuse; */
+			padding: 50px;
+			/* padding-left: 10rem; */
+			
+			/* align-self: center; */
+		}
+
+		#iframee {
+			/* position: relative; */
+			outline: none;
+			overflow: hidden;
+			border: none;
+			align-self: center;
+			
+			/* margin-left: 3rem; */
+			/* padding: 50px; */
+			width: 40rem;
+			height:25rem;
+			background: rgba(255, 255, 255, 0.1);
+			
+			/* background-color:transparent; */
+			box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.1);
+			border-radius: 15px;
+			background: rgba(255, 255, 255, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			border-right: 1px solid rgba(255, 255, 255, 0.2);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(5px);
+		}
+
+		#fra {
+			position: relative;
+			background: transparent;
+			background-color: transparent;
+			align-items: center;
+			/* padding: auto; */
+		}
+
+		/* #thisis {
+			margin-right: 20%;
+		} */
+
+		#thisher {
+			font-family: 'Monoton', cursive;
+			/* margin-right: 30%; */
+		}
+
+		#one,
+		#two,
+		#three {
+			padding-left: 3%;
+		}
+		.square{
+			position: absolute;
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			border-right: 1px solid rgba(255, 255, 255, 0.2);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(5px);
+			box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.1);
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 15px;
+			animation: animate 7s linear infinite;
+		}
+		@keyframes animate {
+			0%,100%{transform: translateY(-40px);}
+			50%{transform: translateY(40px);}
+		}
+		.square:nth-child(1){
+			top: -50px;
+			right: -60px;
+			width: 100px;
+			height: 100px;
+			/* z-index: 2; */
+			/* background-color: rgba(255, 255, 255, 0.6); */
+		}
+		.square:nth-child(2){
+			top: 150px;
+			left: -80px;
+			width: 120px;
+			height: 120px;
+			z-index: -1;
+			/* background-color:rgba(255, 255, 255, 0.3); */
+			/* rgba(13, 128, 242,0.5) */
+		}
+		.square:nth-child(3){
+			bottom: 50px;
+			right: -60px;
+			width: 150px;
+			height: 150px;
+			z-index: 2;
+			/* background-color: rgba(255, 255, 255, 0.5); */
+		}
+		.square:nth-child(4){
+			bottom: 20px;
+			left: 100px;
+			width: 60px;
+			height: 60px;
+			z-index: 2;
+			/* background-color: rgba(255, 255, 255, 0.4); */
+		}
+		/* #one1,#two1,#three1{font-family: 'Alfa Slab One', cursive;
+font-family: 'Zilla Slab Highlight', cursive; } */
+	</style>
+</head>
+
+<body>
+
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58LHNSV" height="0" width="0"
+			style="display:none;visibility:hidden;"></iframe>
+	</noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+	<div id="loading">
+		<div class="preloader">
+			<div class="boxes">
+				<div class="box">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="box">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="box">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="box">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="hero">
+		<div class="container">
+			<div class="hero-inner">
+				<div class="hero-figure anime-element">
+					<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+						<rect width="528" height="396" style="fill:transparent;" />
+					</svg>
+					<div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+					<div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+					<div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+					<div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+					<div class="hero-figure-box hero-figure-box-05"></div>
+					<div class="hero-figure-box hero-figure-box-06"></div>
+					<div class="hero-figure-box hero-figure-box-07"></div>
+					<div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+					<div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+					<div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<section class="darktheme">
+		<div class="darktheme__container " id="dark__theme">
+
+			<input class="input__dark" type="checkbox" id="switch" name="theme" />
+			<label class="label__dark" for="switch">Toggle</label>
+		</div>
+
+	</section>
+	<!-- whole page start -->
+	<div id="whole">
+		<div id="home" >
+
+		<!-- class="home-section"> -->
+			<!-- <div class="home__container"> -->
+				<div class="home__container--text">
+					<br><br>
+					<h1 id="thisher" style="font-size: 3rem;word-spacing: 25px;"> fake news detector</h1>
+				</div>
+				<div id="flexing">
+					<!-- here -->
+					<!-- <form class="c-form" method="post" action="{%url 'my_function' %}">
+						{% csrf_token %} -->
+					<div class="c-form">
+						<h6 id="one1" style="text-align: center;">Date From</h6>
+						<input id="one" class="contact-input" type="date" name="frominp" id="frominp">
+						<h6 id="two1" style="text-align: center;">Date To</h6>
+						<input id="two" class="contact-input" type="date" name="toinp" id="toinp">
+						<h6 id="three1" style="text-align: center;">News Content</h6>
+						<textarea id="three" class="contact-textarea" rows="5" placeholder="News Content..."
+							name="textinp"></textarea><br><br>
+						<div class="cta-button2">
+							<!--<a class="white" target="_blank">
+								<p>-->
+							<button class="text"
+								style="width: 300px; height: 55px;text-align: center;background-color:#0d80f2;border: none;"
+								onclick="loadding()">SUBMIT</button>
+							<!--</p>
+							</a>-->
+
+
+						</div>
+						<br>
+						<p style="text-align:center;">(After clicking submit button wait for 5 mins to get result)</p>
+						<!-- </form> -->
+					</div>
+					<div id="fra">
+						<div class="square" style="--i:1"></div>
+						<div class="square" style="--i:2"></div>
+						<div class="square" style="--i:3"></div>
+						<div class="square" style="--i:4"></div>
+						<iframe id="iframee" allowfullscreen="true" allowtransparency="true"  src="ifram?one=1&two=2&three=3">
+							<!-- here iframe -->
+						</iframe>
+					</div>
+
+					<script type="text/javascript">
+
+
+						function loadding() {
+							document.getElementById('iframee').setAttribute('src', "/ifram?one=" + String(document.getElementById('one').value) + "&two=" + String(document.getElementById('two').value) + "&three=" + String(document.getElementById('three').value)
+							);
+						}
+
+
+					</script>
+				</div>
+			<!-- </div> -->
+
+			<!-- <div class="home__scroll">
+				<i class="fas fa-chevron-down"></i>
+			</div> -->
+		</div>
+
+		<!-- <main> -->
+		<div id="about" class="about-section">
+		
+			<h1 id="thisher" class="heading-secondary ">About</h1>
+			<div class="about__background">
+				<img src="{% static 'post_image/Anti Grvty _ Creative Digital Lab Focused on Creating Unique Human Experience.-1.svg' %}"
+					alt="">
+			</div>
+			<div class="about__container"> 
+				<div class="about__container--text">
+					<p>
+						The large use of social media has tremendous impact on our society, culture,
+						business with potentially positive and negative effects. Now-a-days, due to
+						the increase in use of online social networks, the fake news for various commercial
+						and political purposes has been emerging in large numbers and widely spread in
+						the online world. The existing systems are not efficient in giving a precise
+						statistical rating for any given news. Also, the restrictions on input and category
+						of news make it less varied. This paper develops a method for automating fake
+						news detection for various events. We are building a classifier that can predict
+						whether a piece of news is fake based on data sources, thereby approaching the
+						problem from a purely NLP perspective.
+						<br><br>
+						Fake news detection topic has gained a great deal of interest from researchers
+						around the world. When some event has occurred, many people discuss it on the
+						web through the social networking. They search or retrieve and discuss the
+						news events as the routine of daily life. Some type of news such as various bad
+						events from natural phenomenal or climate are unpredictable. When the
+						unexpected events happen there are also fake news that are broadcasted that
+						creates confusion due to the nature of the events. Very few people know the real
+						fact of the event while the most people believe the forwarded news from their
+						credible friends or relatives. These are difficult to detect whether to believe or
+						not when they receive the news information. So, there is a need of an automated
+						system to analyse truthfulness of the news.
+					</p>
+				 </div>
+				<br><br><br><br>
+			</div>
+		</div>
+
+		<div id="theme" class="theme--section">
+			<h1 id="thisher" class="heading-secondary heading-secondary--white">Project</h1>
+			<h2>How to use detector?</h2>
+			<div class="theme__container">
+				<div class="theme__container--card">
+					<div class="theme__item">
+						<div class="theme__item--details">
+							<h4>Javascript</h4>
+						</div>
+						<div class="theme__item--img">
+							<img src="{% static 'post_image/blockchain-2.svg' %}" width="80%">
+						</div>
+					</div>
+				</div>
+				<div class="theme__container--card">
+					<div class="theme__item">
+						<div class="theme__item--details">
+							<h4>HTML/CSS</h4>
+						</div>
+						<div class="theme__item--img">
+							<img src="{% static 'post_image/cloud-computing-svgrepo-com.svg' %}" width="80%" />
+						</div>
+					</div>
+				</div>
+				<div class="theme__container--card">
+					<div class="theme__item">
+						<div class="theme__item--details">
+							<h4>Django</h4>
+						</div>
+						<div class="theme__item--img">
+							<img src="{% static 'post_image/healthcare.jpg' %}" height="100%" />
+						</div>
+					</div>
+				</div>
+				<div class="theme__container--card">
+					<div class="theme__item">
+						<div class="theme__item--details">
+							<h4>Education</h4>
+						</div>
+						<div class="theme__item--img">
+							<img src="{% static 'post_image/undraw_Firmware_jw6u.svg' %}" />
+						</div>
+					</div>
+				</div>
+				<div class="theme__container--card">
+					<div class="theme__item">
+						<div class="theme__item--details">
+							<h4>Machine Learning / AI</h4>
+						</div>
+						<div class="theme__item--img">
+							<img style="height: 10rem;" src="{% static 'post_image/ML.svg' %}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="theme__container--card">
+					<!-- <div class="theme__item--2"> -->
+					<!-- <div class="theme__item--2--details">
+							<h4>Play Video</h4>
+						</div> -->
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/O0StKlRHVeE?controls=0"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+					<!-- </div> -->
+				</div>
+
+				<div class="theme__container--card">
+					<div class="theme__item">
+						<div class="theme__item--details">
+							<h4>Ajax</h4>
+						</div>
+						<div class="theme__item--img">
+							<img style="height: 8rem;" src="{% static 'post_image/gaming.png' %}" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cta-button2">
+				<a class="white" href="#">
+					<p>
+						<span class="bg"></span><span class="base"></span>
+						<span class="text">IEEE Paper Of Project</span>
+					</p>
+				</a>
+			</div>
+
+			<div class="cta-button2">
+				<a class="white" href="#" target="_blank">
+					<p>
+						<span class="bg"></span><span class="base"></span>
+						<span class="text">PPT of Project</span>
+					</p>
+				</a>
+			</div>
+		</div>
+
+		<div id="speaker" class="speaker--section">
+
+			<h1 id="thisher" class="heading-secondary heading-secondary--white">Team</h1>
+
+			<div class="speaker__container">
+				<div class="speaker__container--card">
+					<div class="speaker__img">
+						<img src="https://media-exp1.licdn.com/dms/image/C4D03AQEGoD4rPJsOTA/profile-displayphoto-shrink_400_400/0/1616758688727?e=1623888000&v=beta&t=oIbpo1pr7LilsGuGxM7IMm0EN5v69Xa39IfG-9mLoNc"
+							alt="">
+					</div>
+					<div class="speaker__details">
+						<h3>Suyash Sawant</h3>
+						<h4>Atharva College of Engineering</h4>
+						<div class="speaker__links">
+							<div class="speaker__link">
+								<a href="#" class="fab fa-linkedin "></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="speaker__container--card">
+					<div class="speaker__img">
+						<img src="../static/prathmesh.jpg" alt="">
+					</div>
+					<div class="speaker__details">
+						<h3>Prathmesh Pawar</h3>
+						<h4>Atharva College of Engineering</h4>
+						<div class="speaker__links">
+							<div class="speaker__link">
+								<a href="https://www.linkedin.com/in/prathmesh-pawar-328b8618b/"
+									class="fab fa-linkedin "></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="speaker__container--card">
+					<div class="speaker__img">
+						<img src="https://media-exp1.licdn.com/dms/image/C4E03AQED7C34SopHSA/profile-displayphoto-shrink_400_400/0/1614964349326?e=1623888000&v=beta&t=GW13Bk87IT3gUffvM7uAcqn5byCFvC5-fxrKdNyH9uQ"
+							alt="">
+					</div>
+					<div class="speaker__details">
+						<h3>Rutva Patel</h3>
+						<h4>Atharva College of Engineering</h4>
+						<div class="speaker__links">
+							<div class="speaker__link">
+								<a href="#" class="fab fa-linkedin "></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="speaker__container--card">
+					<div class="speaker__img">
+						<img src="https://media-exp1.licdn.com/dms/image/C4E03AQGbXCWwr8QEmA/profile-displayphoto-shrink_400_400/0/1517673144828?e=1623888000&v=beta&t=LUwm9IqAAjjKsX4-blQokSHNIMih8tjY2CMnEVnBugs"
+							alt="">
+					</div>
+					<div class="speaker__details">
+						<h3>Suman Parui</h3>
+						<h4>Atharva College of Engineering</h4>
+						<div class="speaker__links">
+							<div class="speaker__link">
+								<a href="#" class="fab fa-linkedin "></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="engine__img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="290" height="200" x="0px" y="0px" viewBox="0 0 498.4 498.4">
+					<g id="wheel-1">
+						<path style="fill: #919191" d="M235.6,213.6l28.8-28.8l-11.2-11.2c7.2-11.2,12.8-24,15.2-36.8h16V96h-16c-2.4-12.8-8-25.6-15.2-36.8
+									  l11.2-10.4L235.6,20l-11.2,11.2c-11.2-7.2-24-12.8-36.8-15.2V0h-40.8v16c-12.8,2.4-25.6,8-36.8,15.2L98.8,20L70,48.8L81.2,60
+									  C74,71.2,68.4,84,66,96.8H50v40.8h16c2.4,12.8,8,25.6,15.2,36.8L70,184.8l28.8,28.8l11.2-11.2c11.2,7.2,24,12.8,36.8,15.2v16h40.8
+									  v-16c12.8-2.4,25.6-8,36.8-15.2L235.6,213.6z M138,145.6c-16-16-16-41.6,0-57.6s41.6-16,57.6,0s16,41.6,0,57.6S154,161.6,138,145.6z
+									  " />
+						<path style="fill: #5a5a5a" d="M253.2,173.6c7.2-11.2,12.8-24,15.2-36.8h16V96h-16c-2.4-12.8-8-25.6-15.2-36.8l11.2-10.4l-13.6-13.6
+									  l-54.4,53.6c15.2,16,15.2,41.6-0.8,56.8c-16,16-40.8,16-56.8,0.8L85.2,200l13.6,13.6l11.2-11.2c11.2,7.2,24,12.8,36.8,15.2v16h40.8
+									  v-16c12.8-2.4,25.6-8,36.8-15.2l11.2,11.2l28.8-28.8L253.2,173.6z" />
+					</g>
+					<g id="wheel-2">
+						<path style="fill: #086d3e" d="M423.6,279.2l-34.4-34.4l-13.6,13.6c-13.6-8.8-28-15.2-43.2-17.6v-19.2h-48v19.2
+									  c-15.2,3.2-29.6,8.8-43.2,17.6l-13.6-13.6l-34.4,34.4l13.6,13.6c-8.8,13.6-15.2,28-17.6,43.2H170v48h19.2
+									  c3.2,15.2,8.8,29.6,17.6,43.2l-13.6,13.6l34.4,34.4l13.6-13.6c13.6,8.8,28,15.2,43.2,17.6v19.2h48v-19.2
+									  c15.2-3.2,29.6-8.8,43.2-17.6l13.6,13.6l34.4-34.4L410,427.2c8.8-13.6,15.2-28,17.6-43.2h19.2v-48h-19.2
+									  c-3.2-15.2-8.8-29.6-17.6-43.2L423.6,279.2z M342.8,393.6c-18.4,19.2-49.6,19.2-68,0c-18.4-18.4-18.4-49.6,0-68
+									  c19.2-18.4,49.6-18.4,68,0C361.2,344.8,361.2,375.2,342.8,393.6z" />
+						<path style="fill: #003f1f" d="M375.6,258.4c-13.6-8.8-28-15.2-43.2-17.6v-19.2h-48v19.2c-15.2,3.2-29.6,8.8-43.2,17.6l-13.6-13.6
+									  l-16.8,16.8l64,64c19.2-18.4,48.8-18.4,67.2,0.8c18.4,18.4,18.4,48.8,0.8,67.2l64,64l16.8-16.8L410,427.2
+									  c8.8-13.6,15.2-28,17.6-43.2h19.2v-48h-19.2c-3.2-15.2-8.8-29.6-17.6-43.2l13.6-13.6l-34.4-34.4L375.6,258.4z" />
+					</g>
+					<g id="wheel-3">
+						<path style="fill: #ee462c" d="M448.4,155.2v-24h-9.6c-1.6-8-4.8-15.2-8.8-21.6l6.4-6.4l-16.8-16.8l-6.4,6.4
+									  c-6.4-4-13.6-7.2-21.6-8.8v-9.6h-24V84c-8,1.6-15.2,4.8-21.6,8.8l-6.4-6.4l-18.4,16.8l6.4,6.4c-4,6.4-7.2,13.6-8.8,21.6h-9.6v24h9.6
+									  c1.6,8,4.8,15.2,8.8,21.6l-6.4,6.4L338,200l6.4-6.4c6.4,4,13.6,7.2,21.6,8.8v9.6h24v-9.6c8-1.6,15.2-4.8,21.6-8.8l6.4,6.4l16.8-16.8
+									  l-4.8-6.4c4-6.4,7.2-13.6,8.8-21.6H448.4z M378.8,167.2c-13.6,0-24-10.4-24-24s10.4-24,24-24s24,10.4,24,24S392.4,167.2,378.8,167.2
+									  z" />
+						<path style="fill: #921009" d="M438.8,131.2c-1.6-8-4.8-15.2-8.8-21.6l6.4-6.4l-16.8-16.8l-6.4,6.4c-6.4-4-13.6-7.2-21.6-8.8v-9.6
+									  h-12v44.8c12.8,0,24,11.2,24,24s-10.4,24-24,24V212h12v-9.6c8-1.6,15.2-4.8,21.6-8.8l6.4,6.4l16.8-16.8l-6.4-6.4
+									  c4-6.4,7.2-13.6,8.8-21.6h9.6v-24H438.8z" />
+					</g>
+				</svg>
+			</div>
+
+		</div>
+
+		
+
+
+		<div class="sponsor--section" id="sponsors">
+			<div class="sponsor__container">
+				<div class="sponsor__heading">
+					<h1 id="thisher" class="heading-secondary heading-secondary--white">Contact Us</h1>
+				</div>
+				<div class="contact-form">
+					<!-- <div class="card"> -->
+					<form id="thisis" class="c-form">
+						<label  style="color: white;">
+							Name:
+						</label><br>
+						<input class="contact-input" type="text" placeholder="Your name..."><br>
+						<label style="color: white;">
+							Email:
+						</label><br>
+						<input class="contact-input" type="email" placeholder="Your email..."><br>
+						<label  style="color: white;">
+							Message:
+						</label><br>
+						<textarea class="contact-textarea" rows="5" placeholder="Your message..."></textarea><br>
+						<div class="cta-button2">
+							<a class="white" href="#">
+								<p>
+									<span class="bg"></span><span class="base"></span>
+									<span class="text">SUBMIT</span>
+								</p>
+							</a>
+						</div>
+					</form>
+				</div>
+				<!-- </div> -->
+			</div>
+		</div>
+	</div>
+	<!-- whole page end -->
+	<!-- </main> -->
+	
+
+	<footer class="new_footer_area bg_color" id="follow">
+		<div class="new_footer_top">
+			<div class="container footer__container">
+				<div class="footer__row footer__row--1">
+					<div class="footer__row--text">
+						<h1>Fake News Detector</h1>
+					</div>
+				</div>
+
+				<div class="row footer__row">
+					<div class="col-lg-3 col-md-6">
+						<div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s"
+							style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+							<h3 class="f-title f_600 t_color f_size_18">Follow Us!</h3>
+							<div class="f_social_icon">
+								<a href="https://www.facebook.com/equinoxiiitl/" class="fab fa-facebook"></a>
+								<a href="https://twitter.com/equinoxiiitl?lang=en" class="fab fa-twitter"></a>
+								<a href="https://www.linkedin.com/company/equinox-iiitl/" class="fab fa-linkedin"></a>
+								<a href="mailto:hack@iiitl.ac.in" class="fab fa-envelope"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer_bg">
+				<div class="footer_bg_one"></div>
+				<div class="footer_bg_two"></div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+	<script src="{% static 'js/home.js' %}"></script>
+	<script src="{% static 'js/jquery/jquery-3.2.1.min.js' %}"></script>
+
+
+	<script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+</body>
+
+</html>
+
+{%endblock content %}

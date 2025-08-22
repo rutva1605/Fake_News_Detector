@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            
+            margin: 0;
+            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            
+            height: 100vh;
+            width: 100vw;
+            background-color: transparent;
+            background: transparent;
+        }
+    body{margin: 0;
+            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+        html {
+            align-items: center;
+            text-align: center;
+            /* justify-content: center; */
+        }
+    
+        #load {
+            position: absolute;
+            
+            z-index: 33;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            width: 100%;
+            height: 100%;
+    
+        }
+    
+        /* #load0 {
+            width: 100%;
+            height: 10%;
+            background-color: #000;
+            color: #fff;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        } */
+    
+        #load1 {
+            width: 100%;
+            height: 100%;
+            background: #000 url("../static/load.gif") no-repeat center;
+    
+        }
+    
+        #fram {
+            /* background-color: royalblue;
+            background: royalblue; */
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border: 0;
+        }
+</style>        
+
+</head>
+<body onload="go()">
+
+    <div id="load">
+        
+        <div id="load1"></div>
+    </div>
+    
+    <iframe id="fram" allowfullscreen="true" allowtransparency="true"onload="loa()" src="../newpage?one={{one}}&two={{two}}&three={{three}}">
+
+    </iframe>
+
+
+    <script type="text/javascript">
+        let load = document.getElementById("load");
+        function go() {
+            
+            load.style.setProperty('display', 'none'); 
+        }
+       
+        function loa(){
+            load.style.setProperty('display', 'none'); 
+            document.getElementById('input').style.setProperty('z-index', '1'); 
+
+        }
+
+    </script>
+</body>
+</html>
