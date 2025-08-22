@@ -22,3 +22,12 @@ This project presents a robust approach to detecting fake news using BERT-based 
 ## 📂 Dataset
 
 The model was trained on a curated dataset containing labeled news articles. It includes both real and fake news samples sourced from publicly available repositories and competitions such as the [Fake News Challenge](https://www.fakenewschallenge.org/).
+
+## 📅 Publication Details
+
+- Paper Title: Fake News Detection Using BERT Semantic Similarity
+- Published In: IJSRD – Volume 9, Issue 3
+- Publication Date: June 1, 2021
+- Paper ID: IJSRDV9I30210
+- Pages: 235–238
+- Link: https://www.ijsrd.com/Article.php?manuscript=IJSRDV9I30210 
